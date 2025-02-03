@@ -1,0 +1,29 @@
+Automação de Graphic User Interface requer atenção de 3 pontos chaves:
+- Seletores (uuid, data-test, id, name, css, link, partial link, xpath)
+- Sincronismo (aprender sobre waits: bruto, implicito, explicito e fluente)
+- "Programação exótica"
+
+Formas de automatizar
+- Gravação (Record / Play): 1 teste = 1 script
+- Gravação com Personalização: 1 teste = 1 script
+- Linear: 1 teste = 1 script
+- Estruturado com Bibliotecas: 1 teste = 2 ou mais scripts
+- DDT: 1 teste = 3 ou mais scripts
+- BDD/BDT: 1 teste = 4 ou mais script
+- Keyword Driven --> Robot Framework (ATDD - Acceptance Testing Driven Development)
+  1 teste = 5 ou mais script
+- Page Object/Page Factory = 8 ou mais scripts
+- Baseado em Modelo
+
+Como escolher qual usar?
+- Risco x orçamento
+- Tempo de vida útil do software
+
+
+Linha de Tempo
+- Chamar a Url (1)
+- Exibir um texto Html na página (3)
+- Carregamento da página:
+--->  domcontentloaded - espera o Html inicial carregar (2)
+--->  load - espera carregar completamente a página (4)
+--->  networkidle - espera até não haver mais nenhuma requisição de rede (5)
