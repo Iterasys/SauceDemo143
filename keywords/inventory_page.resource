@@ -1,6 +1,7 @@
 *** Settings ***
 Library    Browser
 
+
 *** Keywords ***
 Verificar o produto na pagina de inventario v1
     [Arguments]    ${sku}    ${produto_esperado}    ${preco_esperado}
@@ -45,3 +46,19 @@ Verificar o produto na pagina de inventario Ancestor
     ...    xpath=//a[@id='${selector}']/ancestor::div[@class='inventory_item_description']//div[@class='inventory_item_price']
     Should Be Equal    ${preco_atual}    ${preco_esperado}
 
+Selecionar o produto
+    [Arguments]    ${tipo}    ${parametro}
+
+    IF    '${tipo}' == 'sku'
+        ${selector}    Set Variable   item_${parametro}_title_link
+        Log To Console    Selector: ${selector} 
+        Click    id=${selector}
+        END
+    IF    '${tipo}' == 'nome'
+        ${selector}    Set Variable    //div[@data-test='inventory-item-name' and text()='${parametro}'] 
+        Log To Console    Selector: ${selector} 
+        Click    xpath=${selector}
+    END
+
+    # Verificar se foi para a página de item produto
+    
