@@ -1,7 +1,7 @@
 *** Settings ***
 Library    Browser    # Playwright
 Resource    ../keywords/login_page.resource
-Test Template    Cenario de Compra
+Test Template    Realizar Login
 
 *** Variables ***
 ${url}    https://www.saucedemo.com
@@ -11,7 +11,7 @@ TCP01    standard_user       secret_sauce    Products
 TCP02    visual_user         secret_sauce    Products       
 
 *** Keywords ***
-Cenario de Compra
+Realizar Login
     [Arguments]    ${username}    ${password}    ${resultado_esperado}
     login_page.Abrir o site    ${url}
     login_page.Logar    ${username}    ${password}    ${resultado_esperado}

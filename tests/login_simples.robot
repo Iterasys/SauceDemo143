@@ -7,7 +7,7 @@ ${username}    standard_user
 ${password}    secret_sauce
 
 *** Test Cases ***
-Cenario de Compra
+Realizar Login
     Abrir o site
     Logar
 

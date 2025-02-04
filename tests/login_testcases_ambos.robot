@@ -1,7 +1,7 @@
 *** Settings ***
 Library    Browser    # Playwright
 Resource    ../keywords/login_page.resource
-Test Template    Cenario de Compra
+Test Template    Realizar Login
 
 *** Variables ***
 ${url}    https://www.saucedemo.com
@@ -20,7 +20,7 @@ TCN08    N    _branco    laranja             Epic sadface: Username is required
 TCN09    N    locked_out_user    secret_sauce    Epic sadface: Sorry, this user has been locked out.
 
 *** Keywords ***
-Cenario de Compra
+Realizar Login
     [Arguments]    ${tipo}    ${username}    ${password}    ${resultado_esperado}
     login_page.Abrir o site    ${url}
     IF    "${tipo}" == "P"

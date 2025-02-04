@@ -1,12 +1,12 @@
-${id};${tipo};${username};${password};${resultado_esperado}
-TCP01;P;standard_user;secret_sauce;Products
-TCP02;P;visual_user;secret_sauce;Products  
-TCN01;N;standard_user;laranja;Epic sadface: Username and password do not match any user in this service
-TCN02;N;admin;secret_sauce;Epic sadface: Username and password do not match any user in this service
-TCN03;N;admin;laranja;Epic sadface: Username and password do not match any user in this service
-TCN04;N;standard_us;_branco;Epic sadface: Password is required
-TCN05;N;_branco;secret_sauce;Epic sadface: Username is required
-TCN06;N;_branco;_branco;Epic sadface: Username is required
-TCN07;N;admin;_branco;Epic sadface: Password is required
-TCN08;N;_branco;laranja;Epic sadface: Username is required
-TCN09;N;locked_out_user;secret_sauce;Epic sadface: Sorry, this user has been locked out.
+tipo;username;password;resultado_esperado
+P;standard_user;secret_sauce;Products
+P;visual_user;secret_sauce;Products  
+N;standard_user;laranja;Epic sadface: Username and password do not match any user in this service
+N;admin;secret_sauce;Epic sadface: Username and password do not match any user in this service
+N;admin;laranja;Epic sadface: Username and password do not match any user in this service
+N;standard_us;_branco;Epic sadface: Password is required
+N;_branco;secret_sauce;Epic sadface: Username is required
+N;_branco;_branco;Epic sadface: Username is required
+N;admin;_branco;Epic sadface: Password is required
+N;_branco;laranja;Epic sadface: Username is required
+N;locked_out_user;secret_sauce;Epic sadface: Sorry, this user has been locked out.
