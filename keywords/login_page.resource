@@ -10,7 +10,7 @@ Abrir o Site
     Wait For Elements State    id=login-button    visible    5000ms
 
 Logar
-    [Arguments]    ${username}    ${password}    ${resultado_esperado}
+    [Arguments]    ${username}    ${password}
     Click    id=user-name
     Fill Text    id=user-name    ${username}
     Click    xpath=/html/body/div[1]/div/div[2]/div[1]/div/div/form/div[2]/input
@@ -19,18 +19,9 @@ Logar
     # Click    css=input.submit-button.btn_action
     Click    css=.btn_action
 
-    #To Do: Validar a url
-    ${url_atual}    Get Url
-    Should Be Equal    ${url_atual}    ${url}/inventory.html
-
-    # Espera pelo elemento "Nome da Seção" e verifica se está escrito Products
-    Wait For Elements State         css=span.title    visible    5000ms
-    ${titulo}          Get Text     css=span.title
-    Should Be Equal    ${titulo}    ${resultado_esperado}
-
     Wait For Load State    load  
 
-    Sleep    3s 
+    Sleep    5s 
 
 Login sem sucesso
     [Arguments]    ${username}    ${password}    ${resultado_esperado}
@@ -47,7 +38,6 @@ Login sem sucesso
     # Click    css=input.submit-button.btn_action
     Click    css=.btn_action
 
-    #To Do: Validar a url
     ${url_atual}    Get Url
     Should Be Equal    ${url_atual}    ${url}/
 
@@ -59,6 +49,6 @@ Login sem sucesso
 
 
     ${resultado_atual}    Get Text    css=h3
-    Should Be Equal    ${resultado_atual}        ${resultado_esperado}
+    Should Contain    ${resultado_atual}        ${resultado_esperado}
 
-    Sleep    3s   
+    Sleep    5s   

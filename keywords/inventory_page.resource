@@ -1,5 +1,6 @@
 *** Settings ***
 Library    Browser
+Library    ../fixtures/variables/variaveis.py
 
 
 *** Keywords ***
@@ -35,6 +36,9 @@ Verificar preco do produto na pagina de inventario For
 
 Verificar o produto na pagina de inventario Ancestor
     [Arguments]    ${sku}    ${produto_esperado}    ${preco_esperado}
+    # Grava o código do produto globalmente
+    Set Variavel    SKU    ${sku}    
+
     # Verifica o produto
     ${produto_atual}    Get Text    
     ...    xpath=//div[@data-test='inventory-item-name' and text()='${produto_esperado}']
@@ -47,12 +51,13 @@ Verificar o produto na pagina de inventario Ancestor
     Should Be Equal    ${preco_atual}    ${preco_esperado}
 
 Selecionar o produto
-    [Arguments]    ${tipo}    ${parametro}
+    [Arguments]    ${tipo}    ${parametro}    ${url}
 
     IF    '${tipo}' == 'sku'
         ${selector}    Set Variable   item_${parametro}_title_link
         Log To Console    Selector: ${selector} 
         Click    id=${selector}
+
         END
     IF    '${tipo}' == 'nome'
         ${selector}    Set Variable    //div[@data-test='inventory-item-name' and text()='${parametro}'] 
@@ -61,4 +66,9 @@ Selecionar o produto
     END
 
     # Verificar se foi para a página de item produto
+    ${retorno_esperado}    Get Text    id=back-to-products
+    Should Be Equal    ${retorno_esperado}    Back to products
     
+    ${url_atual}    Get Url
+    ${sku_atual}    Get Variavel    SKU    ${None}
+    Should Be Equal    ${url_atual}    ${url}/inventory-item.html?id=${sku_atual}

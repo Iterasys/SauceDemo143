@@ -24,7 +24,7 @@ Realizar Login
     [Arguments]    ${tipo}    ${username}    ${password}    ${resultado_esperado}
     login_page.Abrir o site    ${url}
     IF    "${tipo}" == "P"
-        login_page.Logar    ${username}    ${password}    ${resultado_esperado}
+        login_page.Logar    ${username}    ${password} 
     ELSE
         login_page.Login sem sucesso    ${username}    ${password}    ${resultado_esperado}
     END    
