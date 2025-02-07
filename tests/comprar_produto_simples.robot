@@ -8,6 +8,7 @@ Resource    ../keywords/cart_page.resource
 Resource    ../keywords/checkout_step_one_page.resource
 Resource    ../keywords/invoice_page.resource
 Resource    ../keywords/checkout_step_two_page.resource
+Resource    ../keywords/checkout-complete.resource
 
 *** Variables ***
 ${url}    https://www.saucedemo.com
@@ -44,6 +45,9 @@ Cenario de Compra
     Verificar informacoes de pagamento entrega e finalizar a compra    
     ...    SauceCard #31337    Free Pony Express Delivery!    
     ...    ${preco_esperado}   0.08
-    Confirmar ser a pagina de destino    checkout-complete    Checkout: Complete! 
+    Confirmar ser a pagina de destino    checkout-complete    Checkout: Complete!
+    Verificar a mensagem de agradecimento
+    Clicar no botao Back Home
+    Confirmar ser a pagina de destino    inventory    Products  
 *** Keywords ***
 # serão todas escritas nos arquivos de mapeamento de página
